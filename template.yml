@@ -25,7 +25,7 @@ Resources:
         Variables:
           RESULTS_BUCKET_NAME: !Ref OutputS3Bucket
           EXTENSION: '.pdf'
-          MIME_TYPE: 'image/svg+xml'
+          MIME_TYPE: 'application/pdf'
       Events:
         FileUpload:
           Type: S3
