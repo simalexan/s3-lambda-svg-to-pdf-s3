@@ -4,10 +4,9 @@
   "description": "A Serverless Application Repository Component for converting SVG files from one S3 bucket, into PDF files to another S3 bucket.",
   "main": "index.js",
   "scripts": {
-    "package": "aws cloudformation package --template-file template.yml --output-template-file output.yml --s3-bucket s3-lambda-svg-to-pdf-s3-bucket",
+    "package": "aws cloudformation package --template-file template.yml --output-template-file output.yml --s3-bucket app-repo-components",
     "deploy": "aws cloudformation deploy --template-file output.yml --stack-name s3-lambda-svg-to-pdf-s3 --capabilities CAPABILITY_IAM",
-    "qd": "npm run package && npm run deploy",
-    "deploy:test": "aws cloudformation deploy --template-file output.yaml --stack-name s3-lambda-svg-to-pdf-s3 --capabilities CAPABILITY_IAM --parameter-overrides InputS3Bucket=s3-lambda-convert-pdf-s3-uploadbucket-1fmr9u6446kry OutputS3Bucket=s3-lambda-convert-pdf-s3-resultsbucket-8w72609rpgfc"
+    "qd": "npm run package && npm run deploy"
   },
   "keywords": [],
   "author": "Aleksandar Simovic <alexander.simovic@gmail.com>",
