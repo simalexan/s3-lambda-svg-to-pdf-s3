@@ -17,9 +17,13 @@ This component has one CloudFormation deployment parameter:
 
 - `ConversionTimeout`, an optional parameter, represents the timeout of the Conversion Lambda function. By default its 60 seconds.
 
+- `InputBucketName`, an optional parameter, represents the name of the Input CSV Bucket. By default its "s3-lambda-csv-input-s3-bucket".
+
+- `OutputBucketName`, an optional parameter, represents the name of the Output CSV Bucket. By default its "s3-lambda-csv-output-s3-bucket".
+
 ## Latest Release - 1.1.0
 
-- Added InputBucketName and OutputBucketName as parameters
+- Added Input and Output bucket names as Cloudformation Parameters
 
 ## Roadmap - Upcoming changes
 
