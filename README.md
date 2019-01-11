@@ -17,9 +17,9 @@ This component has one CloudFormation deployment parameter:
 
 - `ConversionTimeout`, an optional parameter, represents the timeout of the Conversion Lambda function. By default its 60 seconds.
 
-## Latest Release - 1.0.0
+## Latest Release - 1.1.0
 
-- Initial release.
+- Added InputBucketName and OutputBucketName as parameters
 
 ## Roadmap - Upcoming changes
 

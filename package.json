@@ -1,6 +1,6 @@
 {
   "name": "s3-lambda-svg-to-pdf-s3",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Serverless Application Repository Component for converting SVG files from one S3 bucket, into PDF files to another S3 bucket.",
   "main": "index.js",
   "scripts": {

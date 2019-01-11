@@ -5,9 +5,19 @@ Parameters:
   ConversionTimeout:
     Type: Number
     Default: 60
+  InputS3BucketName:
+    Type: String
+    Default: 's3-lambda-input-svg-bucket'
+    MinLength: 3
+  OutputS3BucketName:
+    Type: String
+    Default: 's3-lambda-output-pdf-bucket'
+    MinLength: 3
 Resources:
   InputS3Bucket:
     Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref InputS3BucketName
   ConvertFileFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -20,7 +30,9 @@ Resources:
         - 'arn:aws:lambda:us-east-1:145266761615:layer:rsvg-convert:2'
       Policies:
       - S3CrudPolicy:
-          BucketName: !Sub "${AWS::StackName}-*"
+          BucketName: !Ref OutputS3BucketName
+      - S3ReadPolicy:
+          BucketName: !Ref InputS3BucketName
       Environment:
         Variables:
           RESULTS_BUCKET_NAME: !Ref OutputS3Bucket
@@ -34,6 +46,8 @@ Resources:
             Events: s3:ObjectCreated:*
   OutputS3Bucket:
     Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref OutputS3BucketName
 
 Outputs:
   InputS3Bucket:
